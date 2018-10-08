@@ -1,10 +1,11 @@
-from django.views.generic import TemplateView, View, FormView
+from django.views.generic import View, FormView
 from django.contrib.auth import login, logout
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import HttpResponseRedirect, render
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.conf import settings
 from .forms import LoginForm
 from django.contrib import messages
+from django.http import JsonResponse
 from paramiko import SSHClient
 
 # Create your views here.
@@ -43,5 +44,13 @@ class LogoutView(View):
         return HttpResponseRedirect(settings.LOGIN_URL)
 
 
+@login_required
 def startpage(request):
-    return render(request, 'index.html')
+    user = request.user.get_username()
+    return render(request, 'home.html', {'user': user})
+
+
+@login_required
+def calculation(request):
+    data = {'users': 3, 'total': 5, 'scenario': 12}
+    return JsonResponse(data)

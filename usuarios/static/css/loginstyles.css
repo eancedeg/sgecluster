@@ -4,7 +4,6 @@ body#LoginForm {
     background-position: center;
     background-size: cover;
     padding: 10px;
-
 }
 
 .form-heading {
@@ -26,7 +25,6 @@ body#LoginForm {
 }
 
 .form-control {
-    /*background: #f7f7f7 none repeat scroll 0 0;*/
     border: 1px solid #d4d4d4;
     border-radius: 4px;
     font-size: 14px;
@@ -47,19 +45,6 @@ body#LoginForm {
   margin-bottom:10px;
 }
 
-/*#id_username, #id_password {
-    text-align:center;
-    background: #f7f7f7 none repeat scroll 0 0;
-    border: 1px solid #d4d4d4;
-    border-radius: 4px;
-    font-size: 14px;
-    height: 40px;
-    line-height: 50px;
-    margin-bottom:10px;
-    width: 100%;
-    padding: 0;
-}*/
-
 .forgot a {
   color: #777777;
   font-size: 14px;
@@ -67,8 +52,6 @@ body#LoginForm {
 }
 
 .btn.btn-primary {
-  background: #f0ad4e none repeat scroll 0 0;
-  border-color: #f0ad4e;
   color: #ffffff;
   font-size: 14px;
   width: 100%;
@@ -87,9 +70,9 @@ body#LoginForm {
     margin: auto;
     text-align: center;
 }
-.btn.btn-primary.reset {
+/*.btn.btn-primary.reset {
   background: #ff9900 none repeat scroll 0 0;
-}
+}*/
 .back { text-align: left; margin-top:10px;}
 .back a {color: #444444; font-size: 13px;text-decoration: none;}
 

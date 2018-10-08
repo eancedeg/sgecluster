@@ -16,12 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from usuarios import views
-from django.views.generic import TemplateView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', views.LoginView.as_view(), name='login'),
-    #path('', TemplateView.as_view(template_name='index.html'), name='inicio'),
     path('logout/', views.LogoutView.as_view(), name='logout'),
     path('', views.startpage, name='inicio'),
+    path('calculations', views.calculation, name='calculos'),
 ]

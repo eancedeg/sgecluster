@@ -8,12 +8,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
-    <link rel="stylesheet" href="{% static "css/loginstyles.css" %}">
+    <link rel="stylesheet" href="{% static "css/userstyles.css" %}">
     {% block css %}{% endblock %}
 </head>
 <body>
 
-<nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
+{# Barra de navegación #}
+{% comment %}<nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,7 +33,7 @@
       <li class="nav-item">
         <a class="nav-link" href="#">
           <i class="fa fa-envelope-o">
-            <span class="badge badge-danger">11</span>
+            <span class="badge badge-danger">5</span>
           </i>
           Messages
         </a>
@@ -40,20 +41,60 @@
       <li class="nav-item">
         <a class="nav-link disabled" href="#">
           <i class="fa fa-envelope-o">
-            <span class="badge badge-danger">11</span>
+            <span class="badge badge-danger">8</span>
           </i>
           Disabled
         </a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+    <form class="form-inline">
+      <input class="form-control form-control-sm mr-sm-2" type="text" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
+</nav>{% endcomment %}
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
+        <a href="#" class="navbar-brand">
+            DFQM
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item active"><a href="#" class="nav-link">Calculations</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+            </ul>
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fa fa-envelope-o">
+                            <span class="badge badge-danger">5</span>
+                        </i>
+                        Messages
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">{{ request.user.first_name }}</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'logout' %}">Log out</a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">Log out</a></li>
+            </ul>
+        </div>
+    </div>
 </nav>
 
-{% block body %}{% endblock %}
+{# End Navigation Bar#}
+
+{% block content %}{% endblock %}
 
 <script src="{% static "js/jquery-3.3.1.min.js" %}"></script>
 <script src="{% static "js/bootstrap.min.js" %}"></script>
