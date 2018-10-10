@@ -36,6 +36,11 @@
                         {{ form.password }}
                     </div>
                 </div>
+                    <ul>
+                        {% if errors %}
+                            <li style="color: red">{{ errors }}</li>
+                        {% endif %}
+                    </ul>
 
                 <div class="forgot">
                     <a href="reset.html">Forgot password?</a>
